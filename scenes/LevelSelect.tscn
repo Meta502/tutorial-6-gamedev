@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_alien.png" type="Texture" id=2]
 [ext_resource path="res://assets/Fonts/Raw/CC Wild Words Roman.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/NewGame.gd" type="Script" id=4]
-[ext_resource path="res://scenes/StageSelect.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -25,44 +24,54 @@ margin_right = 904.0
 margin_bottom = 520.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 194.0
+margin_right = 246.0
 margin_bottom = 440.0
 custom_constants/separation = 32
 alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 146.0
-margin_right = 194.0
-margin_bottom = 202.0
+margin_top = 127.0
+margin_right = 246.0
+margin_bottom = 183.0
 custom_colors/font_color = Color( 1, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "ALIEN"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 234.0
-margin_right = 194.0
-margin_bottom = 294.0
+margin_top = 215.0
+margin_right = 246.0
+margin_bottom = 313.0
 custom_constants/separation = 16
 
-[node name="NewGame" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
-margin_right = 194.0
+[node name="Level1" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
+margin_right = 246.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
-text = "New Game"
+text = "Level 1"
 script = ExtResource( 4 )
 scene_to_load = "Level 1"
 
-[node name="StageSelect" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="Level2" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
 margin_top = 38.0
-margin_right = 194.0
+margin_right = 246.0
 margin_bottom = 60.0
 custom_fonts/font = ExtResource( 1 )
-text = "Stage Select"
-script = ExtResource( 5 )
+text = "Level 2"
+script = ExtResource( 4 )
+scene_to_load = "Level 2"
+
+[node name="BackToMainMenu" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 76.0
+margin_right = 246.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back To Main Menu"
+script = ExtResource( 4 )
+scene_to_load = "MainMenu"
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
-margin_left = 198.0
-margin_right = 710.0
+margin_left = 250.0
+margin_right = 762.0
 margin_bottom = 440.0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
@@ -71,5 +80,7 @@ margin_right = 512.0
 margin_bottom = 348.0
 texture = ExtResource( 2 )
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer2/NewGame" to="HBoxContainer/VBoxContainer/VBoxContainer2/NewGame" method="_on_NewGame_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer2/StageSelect" to="HBoxContainer/VBoxContainer/VBoxContainer2/StageSelect" method="_on_StageSelect_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer2/Level1" to="HBoxContainer/VBoxContainer/VBoxContainer2/Level1" method="_on_NewGame_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer2/Level1" to="HBoxContainer/VBoxContainer/VBoxContainer2/Level1" method="_on_Level1_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer2/Level2" to="HBoxContainer/VBoxContainer/VBoxContainer2/Level2" method="_on_Level2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer2/BackToMainMenu" to="HBoxContainer/VBoxContainer/VBoxContainer2/BackToMainMenu" method="_on_BackToMainMenu_pressed"]
